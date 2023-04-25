@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d29d342f4eb756b4ea9781a8d2d8631a, type: 3}
+  m_Name: KFC
+  m_EditorClassIdentifier: 
+  title: KFC
+  icon: {fileID: 21300000, guid: bfa8325765be10b4db5b246a4a5002d3, type: 3}
+  size: 1
+  metricValues:
+  - metric: 0
+    value: 10
+  - metric: 2
+    value: 30

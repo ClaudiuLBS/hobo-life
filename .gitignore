@@ -1,0 +1,52 @@
+# =============== #
+# Unity generated #
+# =============== #
+Temp/
+Library/
+Build/
+Obj/
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+*.orig
+_ReSharper*/
+UpgradeLog*.XML
+UpgradeLog*.htm
+
+# ========== #
+# OS generated #
+# ========== #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# =========== #
+# Compiled DLL #
+# =========== #
+*.dll
+
+# ========= #
+# Log Files #
+# ========= #
+*.log
+
+# ===================== #
+# Unity3D generated files #
+# ===================== #
+UnityGenerated/
