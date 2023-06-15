@@ -15,13 +15,14 @@ public class PickableItem: MonoBehaviour
 
     private void OnTriggerStay(Collider collider)
     {
+        // verific daca playerul este cel care a declansat triggerul 
         if (!collider.CompareTag("Player")) return;
         
         if (Input.GetKeyDown(KeyCode.E))
         {
             bool pickedItem = PlayerMechanics.instance.AddItemToInventory(item);
             if (pickedItem) Destroy(gameObject);
-            else print("Not enough space");
+            else print("Not enough space for this item");
         }
     }
 }
