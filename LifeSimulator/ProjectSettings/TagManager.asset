@@ -8,6 +8,7 @@ TagManager:
   - PlayerMenu
   - Inventory
   - Info
+  - IdCard
   layers:
   - Default
   - TransparentFX

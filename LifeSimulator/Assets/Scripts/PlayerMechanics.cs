@@ -24,12 +24,16 @@ public class PlayerMechanics : MonoBehaviour
     public static PlayerMechanics instance;
     public float money = 0;
     public float inventoryCapacity = 30;
+
     public RectTransform inventoryUI;
     public Slider healthSlider, hungerSlider, thirstSlider, poopSlider, peeSlider;
     public TextMeshProUGUI moneyDisplay;
+    public GameObject idCardPanel;
+
     public List<Item> inventory;
     public PlayerStats stats = new();
     private List<Disease> diseases;
+    public IdCard idCard = null;
 
     private void Awake()
     {
@@ -83,5 +87,14 @@ public class PlayerMechanics : MonoBehaviour
         PlayerMenu.instance.UpdateInventory();
         return true;
 
+    }
+    public void SetIdCard(string firstName, string lastName, string birthDate, string cnp, string citizenship, string gender)
+    {
+        idCard = new IdCard(firstName, lastName, birthDate, cnp, citizenship, gender);
+        idCardPanel.SetActive(true);
+        idCardPanel.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = firstName + " " +  lastName;
+        idCardPanel.transform.Find("Citizenship").GetComponent<TextMeshProUGUI>().text = citizenship + ", gen " + gender;
+        idCardPanel.transform.Find("BirthDate").GetComponent<TextMeshProUGUI>().text = "birth date: " + birthDate;
+        idCardPanel.transform.Find("CNP").GetComponent<TextMeshProUGUI>().text = "cnp: " + cnp;
     }
 }
