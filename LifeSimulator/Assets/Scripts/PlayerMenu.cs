@@ -8,6 +8,7 @@ public class PlayerMenu : MonoBehaviour
 {
     public static PlayerMenu instance;
     public GameObject itemUI;
+    // obiectele care sufera tansformari (itemele din meniu)
     public Transform inventory;
     public GameObject playerMenuUI;
     // Start is called before the first frame update
@@ -16,7 +17,7 @@ public class PlayerMenu : MonoBehaviour
             instance = this;
     }
 
-    // Update is called once per frame
+    // Update is called once per frame (if playermenu is active)
     void Update() {
         if (Input.GetKeyUp(KeyCode.Tab)) {
             playerMenuUI.SetActive(!playerMenuUI.activeSelf);
@@ -32,10 +33,9 @@ public class PlayerMenu : MonoBehaviour
 
         for (int i = 0; i < PlayerMechanics.instance.inventory.Count; i++)
         {
-            Item item = PlayerMechanics.instance.inventory[i];
             GameObject obj = Instantiate(itemUI, inventory);
-            obj.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = item.title;
-            obj.transform.GetChild(1).GetComponent<Image>().sprite = item.icon;
+            obj.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = PlayerMechanics.instance.inventory[i].title;
+            obj.transform.GetChild(1).GetComponent<Image>().sprite = PlayerMechanics.instance.inventory[i].icon;
             var itemInventory = obj.GetComponent<InventoryItem>();
             itemInventory.index = i;
         }
