@@ -31,6 +31,7 @@ public class PlayerMechanics : MonoBehaviour
     public PlayerStats stats = new();
     private List<Disease> diseases;
 
+    //instantiere jucator
     private void Awake()
     {
         if (instance == null)
@@ -47,7 +48,7 @@ public class PlayerMechanics : MonoBehaviour
     private void Update()
     {
         // Actualizare UI
-        //setare slidere
+        //setare slidere + suma de bani
         healthSlider.value = stats[PlayerMetrics.health];
         hungerSlider.value = stats[PlayerMetrics.hunger];
         thirstSlider.value = stats[PlayerMetrics.thirst];
