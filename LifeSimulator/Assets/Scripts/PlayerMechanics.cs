@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum PlayerMetrics { hunger, thirst, needsToPoop, needsToPee, happiness, health, stamina, mass }
@@ -27,7 +28,6 @@ public class PlayerMechanics : MonoBehaviour
     public Slider healthSlider, hungerSlider, thirstSlider, poopSlider, peeSlider;
     public TextMeshProUGUI moneyDisplay;
     public List<Item> inventory;
-
     public PlayerStats stats = new();
     private List<Disease> diseases;
 
