@@ -21,7 +21,7 @@ public class PickableItem: MonoBehaviour
         {
             bool pickedItem = PlayerMechanics.instance.AddItemToInventory(item);
             if (pickedItem) Destroy(gameObject);
-            else print("Not enough space");
+            else InfoHandler.instance.setInfo("Not enough space");
         }
     }
 }

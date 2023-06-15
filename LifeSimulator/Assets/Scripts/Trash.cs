@@ -18,17 +18,17 @@ public class Trash : MonoBehaviour
         if (!collider.CompareTag("Player")) return;
         if (Input.GetKeyDown(KeyCode.E)) {
             if (insideItem == null)
-                print("Nothing here boy");
+                InfoHandler.instance.setInfo("Nothing here boy");
             else
             {
                 bool addedToInventory = PlayerMechanics.instance.AddItemToInventory(insideItem);
                 if (addedToInventory)
                 {
-                    print($"Found {insideItem.title} boyyy");
+                    InfoHandler.instance.setInfo($"Found {insideItem.title} boyyy");
                     insideItem = null;
                 } else
                 {
-                    print($"Found {insideItem.title} but u don't have space in inventory");
+                    InfoHandler.instance.setInfo($"Found {insideItem.title} but u don't have space in inventory");
                 }
 
             }

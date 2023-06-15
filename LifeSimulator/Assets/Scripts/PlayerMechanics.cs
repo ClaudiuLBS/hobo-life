@@ -62,10 +62,16 @@ public class PlayerMechanics : MonoBehaviour
 
         // daca nivelul de apa sau hrana e scazut, mai are maxim 24 ore de trait
         if (stats[PlayerMetrics.thirst] < 10)
+        {
             stats[PlayerMetrics.health] -= 100 / cycleDuration * Time.deltaTime;
+            InfoHandler.instance.setInfo("Dying of thirst!");
+        }
 
         if (stats[PlayerMetrics.hunger] < 10)
+        {
             stats[PlayerMetrics.health] -= 100 / cycleDuration * Time.deltaTime;
+            InfoHandler.instance.setInfo("Dying of Hunger!");
+        }
 
     }
 
