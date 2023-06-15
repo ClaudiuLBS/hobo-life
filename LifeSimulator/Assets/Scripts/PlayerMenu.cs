@@ -8,6 +8,7 @@ public class PlayerMenu : MonoBehaviour
 {
     public static PlayerMenu instance;
     public GameObject itemUI;
+    // obiectele care sufera tansformari (itemele din meniu)
     public Transform inventory;
     public GameObject playerMenuUI;
     // Start is called before the first frame update
