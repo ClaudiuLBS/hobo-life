@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\LifeSimulator",
+    "\\LifeSimulator\\Assets",
+    "\\LifeSimulator\\Assets\\Buildings",
+    "\\LifeSimulator\\Assets\\Scripts",
+    "\\LifeSimulator\\Packages",
+    "\\LifeSimulator\\UserSettings"
+  ],
+  "SelectedNode": "\\LifeSimulator\\Assets\\Scripts\\PlayerMechanics.cs",
+  "PreviewInSolutionExplorer": false
+}

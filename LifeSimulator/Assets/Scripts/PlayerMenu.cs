@@ -11,7 +11,9 @@ public class PlayerMenu : MonoBehaviour
     // obiectele care sufera tansformari (itemele din meniu)
     public Transform inventory;
     public GameObject playerMenuUI;
+
     // Start is called before the first frame update
+
     void Awake() {
         if (instance == null)
             instance = this;
