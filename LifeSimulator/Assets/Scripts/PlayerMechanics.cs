@@ -24,6 +24,7 @@ public class PlayerMechanics : MonoBehaviour
     public static PlayerMechanics instance;
     public float money = 0;
     public float inventoryCapacity = 30;
+    public bool isPeeing = false;
 
     public RectTransform inventoryUI;
     public Slider healthSlider, hungerSlider, thirstSlider, poopSlider, peeSlider;
@@ -32,13 +33,16 @@ public class PlayerMechanics : MonoBehaviour
 
     public List<Item> inventory;
     public PlayerStats stats = new();
-    private List<Disease> diseases;
     public IdCard idCard = null;
+    
+    private List<Disease> diseases;
+    private ParticleSystem peeParticles;
 
     private void Awake()
     {
         if (instance == null)
             instance = this;
+        peeParticles = transform.Find("Pee").GetComponent<ParticleSystem>();
     }
 
     // Start is called before the first frame update
@@ -46,6 +50,7 @@ public class PlayerMechanics : MonoBehaviour
     {
         foreach (PlayerMetrics pm in Enum.GetValues(typeof(PlayerMetrics)))
             stats[pm] = 50f;
+        stats[PlayerMetrics.needsToPee] = 100;
     }
 
     private void Update()
@@ -77,6 +82,33 @@ public class PlayerMechanics : MonoBehaviour
             InfoHandler.instance.setInfo("Dying of Hunger!");
         }
 
+        if (isPeeing)
+        {
+            if (stats[PlayerMetrics.needsToPee] <= 0)
+            {
+                stats[PlayerMetrics.needsToPee] = 0;
+                isPeeing = false;
+                peeParticles.Stop();
+            } 
+            else
+            {
+                stats[PlayerMetrics.needsToPee] -= Time.deltaTime * 10;
+                peeParticles.gravityModifier = -0.08f * stats[PlayerMetrics.needsToPee] + 11.08f;
+                print(stats[PlayerMetrics.needsToPee]+ " " + peeParticles.gravityModifier);
+            }
+        }
+
+        if (Input.GetKey(KeyCode.P)) { 
+            if (stats[PlayerMetrics.needsToPee] > 10)
+            {
+                isPeeing = true;
+                peeParticles.Play();
+            }
+            else
+            {
+                InfoHandler.instance.setInfo("Can't pee right now!");
+            }
+        }
     }
 
     public bool AddItemToInventory(Item item)
