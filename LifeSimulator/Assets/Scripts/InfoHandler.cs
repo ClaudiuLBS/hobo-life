@@ -32,7 +32,7 @@ public class InfoHandler : MonoBehaviour
         }
     }
 
-    public void setInfo(string message) {
+    public void SetInfo(string message) {
         infoText.text = message;
         StopAllCoroutines();
         StartCoroutine(FadeOut());

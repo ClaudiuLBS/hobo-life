@@ -10,6 +10,10 @@ public class PlayerMenu : MonoBehaviour
     public GameObject itemUI;
     public Transform inventory;
     public GameObject playerMenuUI;
+
+    private bool active = true;
+
+
     // Start is called before the first frame update
     void Awake() {
         if (instance == null)
@@ -18,7 +22,7 @@ public class PlayerMenu : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyUp(KeyCode.Tab)) {
+        if (active && Input.GetKeyUp(KeyCode.Tab)) {
             playerMenuUI.SetActive(!playerMenuUI.activeSelf);
             if (playerMenuUI.activeSelf)
                UpdateInventory();
@@ -39,5 +43,12 @@ public class PlayerMenu : MonoBehaviour
             var itemInventory = obj.GetComponent<InventoryItem>();
             itemInventory.index = i;
         }
+    }
+
+    public void setActive(bool value)
+    {
+        active = value;
+        if (value == false)
+            playerMenuUI.SetActive(false);
     }
 }

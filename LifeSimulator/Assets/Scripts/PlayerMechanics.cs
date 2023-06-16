@@ -73,13 +73,13 @@ public class PlayerMechanics : MonoBehaviour
         if (stats[PlayerMetrics.thirst] < 10)
         {
             stats[PlayerMetrics.health] -= 100 / cycleDuration * Time.deltaTime;
-            InfoHandler.instance.setInfo("Dying of thirst!");
+            InfoHandler.instance.SetInfo("Dying of thirst!");
         }
 
         if (stats[PlayerMetrics.hunger] < 10)
         {
             stats[PlayerMetrics.health] -= 100 / cycleDuration * Time.deltaTime;
-            InfoHandler.instance.setInfo("Dying of Hunger!");
+            InfoHandler.instance.SetInfo("Dying of Hunger!");
         }
 
         if (isPeeing)
@@ -106,7 +106,7 @@ public class PlayerMechanics : MonoBehaviour
             }
             else
             {
-                InfoHandler.instance.setInfo("Can't pee right now!");
+                InfoHandler.instance.SetInfo("Can't pee right now!");
             }
         }
     }
@@ -120,6 +120,7 @@ public class PlayerMechanics : MonoBehaviour
         return true;
 
     }
+
     public void SetIdCard(string firstName, string lastName, string birthDate, string cnp, string citizenship, string gender)
     {
         idCard = new IdCard(firstName, lastName, birthDate, cnp, citizenship, gender);
@@ -128,5 +129,11 @@ public class PlayerMechanics : MonoBehaviour
         idCardPanel.transform.Find("Citizenship").GetComponent<TextMeshProUGUI>().text = citizenship + ", gen " + gender;
         idCardPanel.transform.Find("BirthDate").GetComponent<TextMeshProUGUI>().text = "birth date: " + birthDate;
         idCardPanel.transform.Find("CNP").GetComponent<TextMeshProUGUI>().text = "cnp: " + cnp;
+    }
+
+    public void AddMoney(float value)
+    {
+        money += value;     
+        moneyDisplay.text = $"{Math.Round(money, 2)}$";
     }
 }

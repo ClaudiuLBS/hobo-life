@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,11 @@ public class Door : MonoBehaviour
     private GameObject player;
     private void Start()
     {
-        player = PlayerMechanics.instance.gameObject;
+        try {
+            player = PlayerMechanics.instance.gameObject;
+        } catch (NullReferenceException) {
+            print("Door: Unable to find PlayerMechanics");
+        }
     }
     private void OnTriggerStay(Collider other)
     {
