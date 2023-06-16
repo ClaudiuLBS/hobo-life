@@ -23,7 +23,7 @@ public class DayNightCycle : MonoBehaviour
         if (instance == null)
             instance = this;
     }
-
+    // Metoda se apeleaza la fiecare frame
     void Update()
     {
         currentRotation = transform.localEulerAngles.x;
@@ -33,9 +33,13 @@ public class DayNightCycle : MonoBehaviour
 
         startHour += (24 / cycleDuration) * Time.deltaTime;
         startMinute += (60 * 24 / cycleDuration) * Time.deltaTime;
+
         int previousHour = hour;
+
         hour = (int)startHour % 24;
         minute = (int)startMinute % 60;
+
+        // Resetam timer-ul si trecem la urmatoarea zi
         if (hour < previousHour)
             DayPass();
 

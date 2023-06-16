@@ -38,6 +38,7 @@ public class PlayerMechanics : MonoBehaviour
     private List<Disease> diseases;
     private ParticleSystem peeParticles;
 
+    //instantiere jucator
     private void Awake()
     {
         if (instance == null)
@@ -56,6 +57,7 @@ public class PlayerMechanics : MonoBehaviour
     private void Update()
     {
         // Actualizare UI
+        //setare slidere + suma de bani
         healthSlider.value = stats[PlayerMetrics.health];
         hungerSlider.value = stats[PlayerMetrics.hunger];
         thirstSlider.value = stats[PlayerMetrics.thirst];
@@ -112,6 +114,7 @@ public class PlayerMechanics : MonoBehaviour
 
     public bool AddItemToInventory(Item item)
     {
+        //nu pot adauga daca depaseste capacitatea maxima a inventarului
         if (inventory.Sum(item => item.size) + item.size > inventoryCapacity)
             return false;
         inventory.Add(item);

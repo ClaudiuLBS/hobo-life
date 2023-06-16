@@ -15,6 +15,7 @@ public class PickableItem: MonoBehaviour
 
     private void OnTriggerStay(Collider collider)
     {
+        // verific daca playerul este cel care a declansat triggerul 
         if (!collider.CompareTag("Player")) return;
         
         if (Input.GetKeyDown(KeyCode.E))

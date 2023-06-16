@@ -7,6 +7,7 @@ public class Trash : MonoBehaviour
     public List<Item> items;
     private Item insideItem = null;
 
+    //cosului i se face refill o data pe zi
     private void Start()
     {
         Refill();
@@ -16,11 +17,13 @@ public class Trash : MonoBehaviour
     private void OnTriggerStay(Collider collider)
     {
         if (!collider.CompareTag("Player")) return;
+        //la apasarea tastei E se verifica daca exista obiect in trash
         if (Input.GetKeyDown(KeyCode.E)) {
             if (insideItem == null)
                 InfoHandler.instance.SetInfo("Nothing here boy");
             else
             {
+                //adauga obiectul in inventar
                 bool addedToInventory = PlayerMechanics.instance.AddItemToInventory(insideItem);
                 if (addedToInventory)
                 {
@@ -29,12 +32,14 @@ public class Trash : MonoBehaviour
                 } else
                 {
                     InfoHandler.instance.SetInfo($"Found {insideItem.title} but u don't have space in inventory");
+
                 }
 
             }
         }
     }
     
+    //umplerea cosului cu un item ales random
     private void Refill()
     {
         if (insideItem == null)
