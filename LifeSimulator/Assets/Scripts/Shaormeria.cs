@@ -17,7 +17,10 @@ public class Shaormeria : MonoBehaviour
     public GameObject orderDisplay;
     public GameObject shaormeriaCanvas;
     public GameObject shaormeriaCamera;
-    
+
+    public AudioClip addIngredientSound;
+    public AudioClip failedToAddIngredientSound;
+
     private void Awake()
     {
         if (instance == null)
@@ -57,15 +60,19 @@ public class Shaormeria : MonoBehaviour
 
     public void AddIngredientToShaorma(string ingredient)
     {
+        var audioSource = GetComponent<AudioSource>();
         if (!currentShaorma.Contains(ingredient) || currentShaorma.Where(x => x == ingredient).Count() <= 3)
         {
             currentShaorma.Add(ingredient);
             InfoHandler.instance.SetInfo($"Added {ingredient}");
+            audioSource.clip = addIngredientSound;
         }
         else
         {
             InfoHandler.instance.SetInfo($"Can't add any more {ingredient}");
+            audioSource.clip = failedToAddIngredientSound;
         }
+        audioSource.Play();
     }
 
     public void DeliverShaorma()

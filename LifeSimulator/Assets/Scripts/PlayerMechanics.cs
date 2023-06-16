@@ -94,7 +94,6 @@ public class PlayerMechanics : MonoBehaviour
             {
                 stats[PlayerMetrics.needsToPee] -= Time.deltaTime * 10;
                 peeParticles.gravityModifier = -0.08f * stats[PlayerMetrics.needsToPee] + 11.08f;
-                print(stats[PlayerMetrics.needsToPee]+ " " + peeParticles.gravityModifier);
             }
         }
 
