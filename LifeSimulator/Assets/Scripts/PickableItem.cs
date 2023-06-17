@@ -22,7 +22,7 @@ public class PickableItem: MonoBehaviour
         {
             bool pickedItem = PlayerMechanics.instance.AddItemToInventory(item);
             if (pickedItem) Destroy(gameObject);
-            else print("Not enough space for this item");
+            else InfoHandler.instance.SetInfo("Not enough space");
         }
     }
 }

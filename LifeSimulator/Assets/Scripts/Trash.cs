@@ -20,21 +20,19 @@ public class Trash : MonoBehaviour
         //la apasarea tastei E se verifica daca exista obiect in trash
         if (Input.GetKeyDown(KeyCode.E)) {
             if (insideItem == null)
-            //mesajul daca nu exista nimic
-                print("Nothing here boy");
+                InfoHandler.instance.SetInfo("Nothing here boy");
             else
             {
                 //adauga obiectul in inventar
                 bool addedToInventory = PlayerMechanics.instance.AddItemToInventory(insideItem);
                 if (addedToInventory)
                 {
-                    //afisare numele itemului care a fost gasit si golirea cosului
-                    print($"Found {insideItem.title} boyyy");
+                    InfoHandler.instance.SetInfo($"Found {insideItem.title} boyyy");
                     insideItem = null;
                 } else
                 {
-                    //cazul cand nu exista spatiu in inventar
-                    print($"Found {insideItem.title} but you don't have space in inventory");
+                    InfoHandler.instance.SetInfo($"Found {insideItem.title} but u don't have space in inventory");
+
                 }
 
             }
