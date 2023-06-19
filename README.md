@@ -1,0 +1,1 @@
+![alt text](https://github.com/ClaudiuLBS/hobo-life/blob/claudiu/FlowChart.png?raw=true)
