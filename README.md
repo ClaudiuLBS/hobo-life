@@ -10,7 +10,7 @@ https://github.com/ClaudiuLBS/hobo-life/commits/master
 ## Raportare bug si rezolvare cu pull request
 ![Bug Report](https://github.com/ClaudiuLBS/hobo-life/blob/master/images/BugReport.png?raw=true)
 
-## Refactoring  + Design Patterns
+## Refactoring + Design Patterns (Singleton)
 
 ### Before:
 ![Before Refactor](https://github.com/ClaudiuLBS/hobo-life/blob/master/images/BeforeRefactor.png?raw=true)
