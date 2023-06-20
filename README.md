@@ -12,10 +12,10 @@ https://github.com/ClaudiuLBS/hobo-life/commits/master
 
 ## Refactoring  + Design Patterns
 
-# Before:
+### Before:
 ![Before Refactor](https://github.com/ClaudiuLBS/hobo-life/blob/master/images/BeforeRefactor.png?raw=true)
 
-# After:
+### After:
 ![After Refactor](https://github.com/ClaudiuLBS/hobo-life/blob/master/images/AfterRefactor.png?raw=true)
 
 ## Comentarii Cod
